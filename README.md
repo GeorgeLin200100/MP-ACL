@@ -35,10 +35,10 @@ chmod +x ./run.sh
     * LLaMA-2 models features *pre-normalization* with the *RMS_Norm* method, which means that normalization is applied prior to *attention* and *MLP* layers in a single transformer block. *RMS_Norm* is formulated as below. Please refer to `RMSNorm` class in `transformer.py`
     
     
-    $$\overline{a_i}=\frac{a_i}{RMS},\ where\ RMS=\sqrt{\frac{1}{n}\sum^n_{i=1}a_i^2}$$
+      $$\overline{a_i}=\frac{a_i}{RMS},\ where\ RMS=\sqrt{\frac{1}{n}\sum^n_{i=1}a_i^2}$$
     
-
     * In contrast, original transformer Models features *layer normalization*, applied after *attention* and *MLP* layers in a single transformer block.
+    
 
 <div align=center><img src="./assets/LLaMa_2_Transformer_Block.png" width="30%"></div>
 
