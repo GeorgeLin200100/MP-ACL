@@ -33,8 +33,10 @@ chmod +x ./run.sh
 
 * Normalization Methods
     * LLaMA-2 models features *pre-normalization* with the *RMS_Norm* method, which means that normalization is applied prior to *attention* and *MLP* layers in a single transformer block. *RMS_Norm* is formulated as below. Please refer to `RMSNorm` class in `transformer.py`
-  
+    
+    
     $$\overline{a_i}=\frac{a_i}{RMS},\ where\ RMS=\sqrt{\frac{1}{n}\sum^n_{i=1}a_i^2}$$
+    
 
     * In contrast, original transformer Models features *layer normalization*, applied after *attention* and *MLP* layers in a single transformer block.
 
@@ -43,8 +45,11 @@ chmod +x ./run.sh
 * Activation Functions
     * LLaMA-2 models adopts the *SwiGLU* activation function within its feed-forward layers. *SwiGLU* is an element-wise product of two linear transformations of the input x, one of which has had a Swish activation applied to it. It has been found to yield improvements in performance relative to other activation functions. Please refer to `SwiGLU` class in `transformer.py`
 
-    $$SwiGLU(x)=Swish(xW)\cdot xV\ \\(can\ also\ be\ Swish(xW)+ xV\ for\ simplicity)\\
-    Swish(x)=x\cdot(Sigmoid(\beta x))$$
+    $$SwiGLU(x)=Swish(xW)\cdot xV\ $$
+    
+    $$(can\ also\ be\ Swish(xW)+ xV\ for\ simplicity)$$
+    
+    $$Swish(x)=x\cdot(Sigmoid(\beta x))$$
 
     * Original transformer models adopts the *Relu* activation function within its feed-forward layers.
 
